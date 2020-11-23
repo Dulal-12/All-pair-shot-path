@@ -8,36 +8,28 @@ const calculation = (element , totalWeight) =>{
 //    console.log(newElement);
  
      var newWeight = 0;
-     var newValue = 0;
+     var newProfitValue = 0;
+    var product = [];
 
-     var index = 0;
+     var pos = 0;
+
     while (newWeight < totalWeight) {
-        var kgProfit = newElement[index].profit / newElement[index].weight;
-        newValue += kgProfit;                                                                                  //add one kg by kg 
-                                                                                                                          //this is right or not!!!
+
+        var kgProfit = Math.ceil(newElement[pos].profit / newElement[pos].weight);
+        newProfitValue += kgProfit;                                                                                  //add one kg by  one kg 
+                                                                                                                                    //this is right or not!!!
         newWeight++;
-        if (newWeight === newElement[index].weight) {
-            index++;
+
+        if (newWeight === newElement[pos].weight) {
+           product.push(newElement[pos].product);
+            pos++;
+
         }
     }
 
 
-    console.log(newWeight , newValue) ;
+    console.log(newWeight , newProfitValue ,product) ;
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 var element = [
