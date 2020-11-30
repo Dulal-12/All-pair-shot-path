@@ -34,7 +34,7 @@ function heapSort(arr  ){
        arr[arr.length-1] = temp;
 
        var value = arr.pop();
-       newArr.push(value);
+       newArr.unshift(value);
      
   }
 
@@ -43,20 +43,6 @@ function heapSort(arr  ){
     }
    
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const arr = [11,23,12,24,4,2,1];
+const arr = [112,32,111,23,1,4,0];
 var result  = heapSort(arr );
 console.log(result);
