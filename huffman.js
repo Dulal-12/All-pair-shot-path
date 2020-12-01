@@ -27,44 +27,51 @@ const huffman = (str)=>{
        });
 
     //console.log(shortChar);
-   let BinaryCode = [ ]
- 
-  
- 
-    for(let i = 0; i<shortChar.length ;i++){
+
+
+
+
+   let distance = [ ]
+  for(let i = 0; i<shortChar.length ;i++){
 
 
         if(i === 0 )
         {
-            BinaryCode[i] = { char : shortChar[i].char , distance :  0};
+            distance[i] = { char : shortChar[i].char , distance :  0};
         }
            
         else{
             var count = 0;
-            BinaryCode[i] = { char : shortChar[i].char , distance :  1};
+            distance[i] = { char : shortChar[i].char , distance :  1};
             count++;
         }
            
        for(var j = i-1 ;j >= 0 ;j--)
        {
-        BinaryCode[j] = { char : shortChar[j].char , distance :  BinaryCode[j].distance + 1};
-        //console.log(BinaryCode[j]);
-
-        
+        distance[j] = { char : shortChar[j].char , distance :  distance[j].distance + 1};
+        //console.log(distance[j]);
        }
-         
+          }
 
-          
+  //console.log(distance);
 
-              
-    }
 
+ let messageSize = 0 ;
+ for(let i in shortChar){
+     messageSize += shortChar[i].count * distance[i].distance;
+ }
+
+     // console.log(messageSize);  
+     var bit = 0;
+     for(let i in distance){
+         bit+= distance[i].distance;
+     }
     
-
-      console.log(BinaryCode);
-          
+     
+      const totalSizeInAscii = messageSize + (shortChar.length*8) +bit;
+      console.log(totalSizeInAscii);
 }
 
 
-const str = 'AAAAdddddddbbbbbbbbcccccccc';
+const str = 'aaaadddddddbbbbbbbbcccccccc';
 huffman(str);
