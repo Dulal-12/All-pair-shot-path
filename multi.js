@@ -1,9 +1,10 @@
 const multi = (arr) =>{
 
     
-    let node = 8 ;
+    let node = arr.length + 1 ;
     let dist = []
-     dist[7] = 0; 
+     dist[arr.length] = 0; 
+     let path = [ ];
     
     for (let i = node-2 ; i >= 0 ; i--) 
     { 
@@ -21,11 +22,13 @@ const multi = (arr) =>{
   
            
             dist[i] = Math.min(dist[i], arr[i][j]+dist[j] ); 
+          //  path.push(i);
+
             
                 
         } 
     } 
-  
+    //console.log(path);
     return dist[0]; 
 } 
 
