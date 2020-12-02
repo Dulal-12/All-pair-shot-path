@@ -26,7 +26,7 @@ const huffman = (str)=>{
         return a.count - b.count;
        });
 
-    //console.log(shortChar);
+   // console.log(shortChar);
 
 
 
@@ -59,9 +59,10 @@ const huffman = (str)=>{
  let messageSize = 0 ;
  for(let i in shortChar){
      messageSize += shortChar[i].count * distance[i].distance;
+     //console.log(messageSize);
  }
 
-     // console.log(messageSize);  
+      //console.log(messageSize);  
      var bit = 0;
      for(let i in distance){
          bit+= distance[i].distance;
@@ -73,5 +74,5 @@ const huffman = (str)=>{
 }
 
 
-const str = 'aaaadddddddbbbbbbbbcccccccc';
+const str = 'aaaacccccccddddddddbbbbbbbb';
 huffman(str);
